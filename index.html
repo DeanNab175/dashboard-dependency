@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoicng dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="job-wrapper">
+        <div 
+            id="salt-import" 
+            class="job-card status-done child-dep" 
+            data-child-id='["email-confirmation"]'>
+            <h1>Salt Import</h1>
+            <p>End date: 16/05/2022</p>
+            <p>Execution time: 22s</p>
+            <p><span>Wiki:</span><a href="#">task link</a></p>
+        </div>
+    
+        <div 
+            id="efon-winet-cdr" 
+            class="job-card status-ongoing child-dep"
+            data-child-id='["email-confirmation"]'>
+            <h1>Efon and Winet CDR Import</h1>
+            <p>Start date: 11/05/2022</p>
+            <p><span>Wiki:</span><a href="#">task link</a></p>
+        </div>
+    
+        <div 
+            id="vod" 
+            class="job-card status-error child-dep"
+            data-child-id='["email-confirmation"]'>
+            <h1>VOD</h1>
+            <p>End date: 12/05/2022</p>
+            <p>Execution time: 106s</p>
+            <p>Error: Something went wrong</p>
+            <p><span>Wiki:</span><a href="#">task link</a></p>
+        </div>
+    
+        <div 
+            id="check-offlineb-calls" 
+            class="job-card status-ongoing child-dep"
+            data-child-id='["email-confirmation", "generate-cpeg"]'>
+            <h1>Check OfflineB Calls</h1>
+            <p>Start date: 11/05/2022</p>
+            <p><span>Wiki:</span><a href="#">task link</a></p>
+        </div>
+    
+        <div 
+            id="check-prev-mnth-cdrs" 
+            class="job-card status-ongoing child-dep"
+            data-child-id='["email-confirmation", "generate-cpeg", "generate-excel-report"]'>
+            <h1>Check Previous Months CDRs</h1>
+            <p>Start date: 11/05/2022</p>
+            <p><span>Wiki:</span><a href="#">task link</a></p>
+        </div>
+    </div>
+
+    <div class="job-wrapper">
+        <div 
+            id="email-confirmation" 
+            class="job-card status-start parent-dep"
+            data-parent-id='["salt-import", "efon-winet-cdr", "vod", "check-offlineb-calls", "check-prev-mnth-cdrs"]'>
+            <h1>Email confirmation</h1>
+            <p>Next execution date: 12/05/2022</p>
+            <p><span>Wiki:</span><a href="#">task link</a></p>
+        </div>
+
+        <div 
+            id="generate-cpeg" 
+            class="job-card status-start parent-dep"
+            data-parent-id='["check-offlineb-calls", "check-prev-mnth-cdrs"]'>
+            <h1>Generate CPEG</h1>
+            <p>Next execution date: 12/05/2022</p>
+            <p><span>Wiki:</span><a href="#">task link</a></p>
+        </div>
+
+        <div 
+            id="generate-excel-report" 
+            class="job-card status-start parent-dep"
+            data-parent-id='["check-prev-mnth-cdrs"]'>
+            <h1>Generate Excel Report from "Voice Check Destination"</h1>
+            <p>Next execution date: 12/05/2022</p>
+            <p><span>Wiki:</span><a href="#">task link</a></p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

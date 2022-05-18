@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* Color variables*/
+:root {
+    --font: 'Inter', sans-serif;
+    --done: #7DD484;
+    --doneColor: #194D1E;
+    --link: #5B256F;
+    --ongoing: #D4D47D;
+    --ongoingColor: #4D4D19;
+    --error: #F06060;
+    --errorColor: #5D0909;
+    --start: #7DC8D4;
+    --startColor: #19464D;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+}
+
+.status-done {
+    background-color: var(--done);
+    color: var(--doneColor);
+}
+
+.status-ongoing {
+    background-color: var(--ongoing);
+    color: var(--ongoingColor);
+}
+
+.status-error {
+    background-color: var(--error);
+    color: var(--errorColor);
+}
+
+.status-start {
+    background-color: var(--start);
+    color: var(--startColor);
+}
+
+.job-wrapper {
+    display: flex;
+    margin: 0 0 3rem;
+}
+
+.job-card {
+    width: 210px;
+    max-width: 100%;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0 0 0 .5rem;
+}
+
+.job-card h1 {
+    font-size: 1rem;
+    line-height: 1;
+    text-align: center;
+    margin: 0 0 1rem;
+}
+
+.job-card p {
+    font-size: .6875rem;
+    line-height: 1;
+    margin: .4rem 0;
+}
+
+.job-card a {
+    font-style: italic;
+    color: var(--link);
+    padding-left: 3px;
+}
+
+.child-dep,
+.parent-dep {
+    position: relative;
+}
+
+.child-dep .child-dep-line-v {
+    position: absolute;
+    width: 1px;
+    background-color: #000;
+    height: 1.5rem;
+    display: block;
+    top: 100%;
+    margin: 0 auto;
+}
+
+.parent-dep .parent-dep-line-v {
+    position: absolute;
+    width: 1px;
+    background-color: #000;
+    height: 1.5rem;
+    display: block;
+    bottom: 100%;
+    margin: 0 auto;
+}
+
+.child-dep .child-dep-line-h {
+    position: absolute;
+    width: calc(100% + .5rem);
+    background-color: #000;
+    height: 1px;
+    display: block;
+    bottom: -1.5rem;
+    left: 50%;
+    margin: 0 auto;
+}
