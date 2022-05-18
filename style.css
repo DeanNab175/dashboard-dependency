@@ -99,13 +99,12 @@ body {
     margin: 0 auto;
 }
 
-.child-dep .child-dep-line-h {
+.parent-dep .child-dep-line-h {
     position: absolute;
-    width: calc(100% + .5rem);
     background-color: #000;
     height: 1px;
     display: block;
-    bottom: -1.5rem;
+    top: -1.5rem;
     left: 50%;
     margin: 0 auto;
 }

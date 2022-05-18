@@ -9,27 +9,46 @@ const generateExcelReportJob = document.getElementById('generate-excel-report')
 
 
 
-createVerticalLine(saltJob)
+/* createVerticalLine(saltJob)
 createVerticalLine(efonWinetJob)
 createVerticalLine(checkOfflinebCallsJob)
 createVerticalLine(checkPrevMnthCdrsJob)
 
 createVerticalLine(emailConfirmationJob)
 createVerticalLine(generateCpegJob)
-createVerticalLine(generateExcelReportJob)
+createVerticalLine(generateExcelReportJob) */
 
-console.log(getElmPos(efonWinetJob), getElmPos(emailConfirmationJob));
+// console.log(getElmPos(efonWinetJob), getElmPos(emailConfirmationJob));
+
+job(saltJob)
+job(efonWinetJob)
+job(checkOfflinebCallsJob)
+job(vodJob)
+job(checkPrevMnthCdrsJob)
 
 job(emailConfirmationJob)
+// job(generateCpegJob)
 
 function job(elm) {
     createVerticalLine(elm)
 
     if(hasParent(elm)) {
         const parentIds = getParentIds(elm)
+        const countParent = parentIds.length
         const firstParentWidth = getElmPos(document.getElementById(parentIds[0])).width
+        const firstParentXPos = getElmPos(document.getElementById(parentIds[0])).x
+        const firstParentXCenterdPos = (firstParentWidth / 2) + firstParentXPos
 
-        console.log(firstParentWidth);
+        const lastParentWidth = getElmPos(document.getElementById(parentIds[countParent - 1])).width
+        const lastParentXPos = getElmPos(document.getElementById(parentIds[countParent - 1])).x
+        const lastParentXCenterdPos = (lastParentWidth / 2) + lastParentXPos
+
+        console.log(firstParentWidth, firstParentXPos, firstParentXCenterdPos);
+        console.log(lastParentWidth, lastParentXPos, lastParentXCenterdPos);
+        console.log(lastParentXCenterdPos - firstParentXCenterdPos);
+
+        const childHLine =  elm.querySelector('.child-dep-line-h')
+        childHLine.style.width = lastParentXCenterdPos - firstParentXCenterdPos + "px"
     }
 }
 
